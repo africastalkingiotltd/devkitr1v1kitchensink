@@ -1,0 +1,43 @@
+{
+    "name": "IoT App",
+    "description": "Your first IoT Callback App",
+    "keywords": [
+      "IoT",
+      "africastalking",
+      "eris"
+    ],
+    "website": "https://africastalking.com/iot",
+    "repository": "https://github.com/jane-doe/small-sharp-tool",
+    "logo": "https://africastalking.com/img/favicons/favicon-96x96.png",
+    "success_url": "/",
+    "scripts": {
+      "postdeploy": "echo \"Done\""
+    },
+    "env": {
+      "NODE_ENV" : "production"
+    },
+    "formation": {
+      "web": {
+        "quantity": 1,
+        "size": "standard-1x"
+      }
+    },
+    "addons": [
+      "rediscloud",
+      {
+        "plan": "rediscloud:30",
+        "as": "MONGO"
+      }
+    ],
+    "buildpacks": [
+      {
+      }
+    ],
+    "environments": {
+      "test": {
+        "scripts": {
+          "test": "bundle exec rake test"
+        }
+      }
+    }
+  }

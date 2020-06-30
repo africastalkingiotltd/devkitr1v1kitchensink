@@ -1,0 +1,14 @@
+{
+  "USSDServiceActor": {
+    "mode": "forked",
+    "clusterSize": 3,
+    "onCrash": "respawn",
+    "dropMessagesOnOverload": true
+  },
+  "DeviceServiceActor": {
+    "mode": "forked",
+    "clusterSize": 3,
+    "onCrash": "respawn",
+    "dropMessagesOnOverload": true
+  }
+}
