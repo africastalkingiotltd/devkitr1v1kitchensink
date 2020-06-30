@@ -71,7 +71,7 @@ export const sendServoCommand = async (command) => {
   const commandData = {
     username : IoTConfigs.username,
     deviceGroup: IoTConfigs.group,
-    topic: `${IoTConfigs.username}/${IoTConfigs.group}/${IoTConfigs.topic}` ,
+    topic: `${IoTConfigs.username}/${IoTConfigs.group}/${IoTConfigs.servoTopic}` ,
     payload: command
   };
   const IOTCommandConfig = {
@@ -79,7 +79,27 @@ export const sendServoCommand = async (command) => {
     method: "post",
     headers: {
       'Content-Type' : 'application/json',
-      'apiKey': '86050567ce4f75b3fce46ed5a722e50345ee00f6256803f5f44ef6528df6eb8d'
+      'apiKey': `${ATAPICreds.apiKey}`
+    },
+    body: JSON.stringify(commandData)
+  };
+  let APIResponse = await axios(IOTCommandConfig);
+  return await APIResponse;
+};
+
+export const sendLEDCommand = async (command) => {
+  const commandData = {
+    username : IoTConfigs.username,
+    deviceGroup: IoTConfigs.group,
+    topic: `${IoTConfigs.username}/${IoTConfigs.group}/${IoTConfigs.ledTopic}` ,
+    payload: command
+  };
+  const IOTCommandConfig = {
+    url: "https://iot.africastalking.com/data/publish",
+    method: "post",
+    headers: {
+      'Content-Type' : 'application/json',
+      'apiKey': `${ATAPICreds.apiKey}`
     },
     body: JSON.stringify(commandData)
   };

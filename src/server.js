@@ -9,7 +9,7 @@ import {
   commandQueue
 } from "./lib/other/queues/main";
 import { redisClient, hgetallAsync } from "./lib/other/redis/redis";
-import { sendServoCommand, sendSMSResponse, voiceOutboundCall } from "./lib/other/output/response";
+import { sendServoCommand, sendSMSResponse, voiceOutboundCall, sendLEDCommand } from "./lib/other/output/response";
 const cluster = require("cluster");
 const cpuCount = require("os").cpus().length;
 const cors = require("cors");
@@ -168,9 +168,22 @@ const pino = require("express-pino-logger")({
     done();
   });
 
-  commandQueue.process(async (job, done) => {
+  commandQueue.process("servo", async (job, done) => {
     console.info(`Command Queue worker ${job.id} is running`);
     let res = await sendServoCommand(job.data.command);
+    if(res.status == 201 || res.status == 200 ){
+      console.info(`Request sent successfuly`);
+    }
+    else {
+      console.error(`Request failed due to ${res.statusText}`);
+    }
+    console.info(`Command Queue worker ${job.id} is done`);
+    done();
+  });
+
+  commandQueue.process("led", async (job, done) => {
+    console.info(`Command Queue worker ${job.id} is running`);
+    let res = await sendLEDCommand(job.data.command);
     if(res.status == 201 || res.status == 200 ){
       console.info(`Request sent successfuly`);
     }

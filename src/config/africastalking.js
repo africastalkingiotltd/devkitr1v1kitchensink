@@ -4,10 +4,11 @@ const africastalkingCreds = {
 };
 
 export const IoTConfigs = {
-    username: process.env.NODE_ENV === 'production' ? process.env.DEVICE_GROUP : 'KennedyOtieno',
-    group: process.env.NODE_ENV === 'production' ? process.env.DEVICE_GROUP : 'demogroup',
-    password: process.env.NODE_ENV === 'production' ? process.env.DEVICE_PASS : 'demogroupassword',
-    topic: process.env.NODE_ENV === 'production' ? process.env.DEVICE_TOPIC : 'servo'
+    username: process.env.DEVICE_GROUP ,
+    group:  process.env.DEVICE_GROUP ,
+    password:  process.env.DEVICE_PASS,
+    servoTopic: process.env.SERVO_TOPIC,
+    ledTopic: process.env.LED_TOPIC 
 };
 
 const  AfricasTalking = require('africastalking')(africastalkingCreds);
