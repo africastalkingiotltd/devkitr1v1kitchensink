@@ -1,6 +1,5 @@
 import compression from "compression";
 import * as sapper from "@sapper/server";
-import { colors } from "./lib/console";
 import {
   devicesQueue,
   callQueue,
