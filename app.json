@@ -23,7 +23,6 @@
       }
     },
     "addons": [
-      "rediscloud",
       {
         "plan": "rediscloud:30",
         "as": "REDIS_URL"
