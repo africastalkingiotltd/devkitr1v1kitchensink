@@ -4,11 +4,12 @@ const africastalkingCreds = {
 };
 
 export const IoTConfigs = {
-    username: process.env.DEVICE_GROUP ,
+    username: process.env.DEVICE_GROUP_USERNAME ,
     group:  process.env.DEVICE_GROUP ,
     password:  process.env.DEVICE_PASS,
     servoTopic: process.env.SERVO_TOPIC,
-    ledTopic: process.env.LED_TOPIC 
+    ledTopic: process.env.LED_TOPIC,
+    iotAPIKey: process.env.IOT_APIKEY
 };
 
 const  AfricasTalking = require('africastalking')(africastalkingCreds);
