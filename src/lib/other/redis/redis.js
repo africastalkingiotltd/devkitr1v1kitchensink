@@ -4,7 +4,7 @@ const { promisify } = require("util");
 const getRedisConnectionClient = () =>{
   let redisConnString;
   if (process.env.NODE_ENV == 'production') {
-    redisConnString = process.env.REDISCLOUD_URL
+    redisConnString = process.env.REDIS_URL
   } else {
     redisConnString = "redis://127.0.0.1:6379";
   }
