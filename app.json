@@ -57,7 +57,7 @@
     "addons": [
       {
         "plan": "rediscloud:30",
-        "as": "REDIS_URL"
+        "as": "REDIS"
       }
     ],
     "buildpacks": [
