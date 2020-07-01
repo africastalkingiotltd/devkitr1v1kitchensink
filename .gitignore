@@ -1,3 +1,4 @@
 node_modules
 __sapper__
 yarn.lock
+_DS.Store
