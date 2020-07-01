@@ -7,7 +7,7 @@
       "eris"
     ],
     "website": "https://africastalking.com/iot",
-    "repository": "https://github.com/jane-doe/small-sharp-tool",
+    "repository": "https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web",
     "logo": "https://africastalking.com/img/favicons/favicon-96x96.png",
     "success_url": "/",
     "scripts": {
@@ -26,18 +26,14 @@
       "rediscloud",
       {
         "plan": "rediscloud:30",
-        "as": "MONGO"
+        "as": "REDIS_URL"
       }
     ],
     "buildpacks": [
       {
+          "url" : "heroku/nodejs"
       }
     ],
     "environments": {
-      "test": {
-        "scripts": {
-          "test": "bundle exec rake test"
-        }
-      }
     }
   }
