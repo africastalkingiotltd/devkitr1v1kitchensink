@@ -4,7 +4,7 @@ const africastalkingCreds = {
 };
 
 export const IoTConfigs = {
-    username: process.env.DEVICE_GROUP_USERNAME ,
+    username: process.env.APPLICATION_USERNAME ,
     group:  process.env.DEVICE_GROUP ,
     password:  process.env.DEVICE_PASS,
     servoTopic: process.env.SERVO_TOPIC,

@@ -14,7 +14,39 @@
       "postdeploy": "echo \"Done\""
     },
     "env": {
-      "NODE_ENV" : "production"
+      "NODE_ENV" : "production",
+      "APPLICATION_USERNAME" : {
+        "description": "Your IoT Application username",
+        "value": "UPDATE ME" 
+      },
+      "DEVICE_GROUP" : {
+        "description": "The device group you want to authenticate to",
+        "value": "UPDATE ME" 
+      },
+      "DEVICE_PASS" : {
+        "description": "The password assigned to the device group",
+        "value": "UPDATE ME" 
+      },
+      "SERVO_TOPIC" : {
+        "description": "The topic to which the IoT device is listening to for servo motor control",
+        "value": "UPDATE ME" 
+      },
+      "LED_TOPIC" : {
+        "description": "The topic to which the IoT device is listening to for servo motor control",
+        "value": "UPDATE ME" 
+      },
+      "AT_USERNAME" : {
+        "description": "Your IoT Application username",
+        "value": "sandbox" 
+      },
+      "AT_APIKEY" : {
+        "description": "Your sandbox API_KEY",
+        "value": "UPDATE ME" 
+      },
+      "IOT_APIKEY" : {
+        "description": "Your live application API KEY",
+        "value": "UPDATE ME" 
+      }
     },
     "formation": {
       "web": {

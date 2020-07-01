@@ -8,8 +8,9 @@
 
 1. [Create a free Heroku account if you do not have one](https://signup.heroku.com/) 
 2. Click on [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web) button to bootstrap the app 
-3. Inside your Heroku configs for the app add the following variables (see the screen grabs below for more info):
-    - `DEVICE_GROUP_USERNAME` : Your IoT Application username
+3. Give your app a name
+4. Under your Heroku Config Vars section  add the following variables (see the screen grabs below for more info):
+    - `APPLICATION_USERNAME` : Your IoT Application username
     - `DEVICE_GROUP` : The device group you want to authenticate to
     - `DEVICE_PASS` : The password assigned to the device group
     - `SERVO_TOPIC` : The topic to which the IoT device is listening to for servo motor control. Example if your base topic is `coolguy/devicegroup/#` and the IoT device is listening for servo motor control command at `coolguy/devicegroup/servo` then this value should be `servo`.
@@ -18,10 +19,11 @@
     - `AT_APIKEY` : Your sandbox [API KEY](https://help.africastalking.com/en/articles/1361037-how-do-i-generate-an-api-key)
     - `IOT_APIKEY`: Your live application [API KEY](https://help.africastalking.com/en/articles/1361037-how-do-i-generate-an-api-key) 
 
+If you need to modify them later see below screen grabs on where to get them
 ![Where to get environement variables](./docs/assets/heroku1.png) 
 ![Setting up environement variables](./docs/assets/heroku2.png) 
 
-4. Once you have finished adding your environment variables scroll down to the `Domains` section to get your application URL. Should read `https://<appname>.herokuapp.com/`
+5. Once you have finished adding your environment variables scroll down to the `Domains` section to get your application URL. Should read `https://<appname>.herokuapp.com/`
 ![Getting your app name](./docs/assets/heroku3.png) 
 
 ### Setup Africa's Talking Account 
