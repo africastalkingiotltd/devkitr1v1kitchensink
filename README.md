@@ -47,7 +47,9 @@
 3. Dial your USSD code. If your short code above was 1000, dial `*384*1000#` and press the `Call` button for magic!
 ![Dial USSD shortcode](./docs/assets/sandboxapp2.png)
 
+# Contributing 
 
+- [Create an issue](https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web/issues/new/choose) or send a [PR](https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web/pulls)
 
 
 
