@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest something we can add to this demo
 title: ''
-labels: feature
+labels: enhancement
 assignees: TheBeachMaster
 
 ---
