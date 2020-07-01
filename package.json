@@ -26,7 +26,7 @@
   "private": false,
   "scripts": {
     "dev": "PORT=23000 sapper dev",
-    "build": "sapper build",
+    "build": "NODE_ENV=production sapper build",
     "export": "sapper export",
     "start": "node __sapper__/build",
     "clean": "rimraf __sapper__ && rimraf ./*.log* ",
