@@ -1,4 +1,4 @@
-import { redisClient } from "../../lib/other/redis/redis";
+import { ioRedisClient } from "../../lib/other/redis/redis";
 import { sessionClean } from "../../lib/other/queues/main";
 import { USSDServiceActor } from "../../lib/actors/ussd/main";
 
@@ -14,7 +14,7 @@ export async function post(req, res, next)
     let currentUserResponse = userInputSplit.pop();
     let sessionLookupKey = "demo:"+sessionId.toString();
 
-    redisClient.hgetall(sessionLookupKey, async (error, result) => {
+    ioRedisClient.hgetall(sessionLookupKey, async (error, result) => {
 
         if (result == null || result == undefined || result['sessionId'] != sessionId.toString() /** New session and this rare occurrence **/) {
             sessionClean.add({

@@ -1,22 +1,21 @@
-import { defaultRedisConnOpts } from "../redis/redis";
-
 const Redis = require("ioredis");
+import { getIORedisOptions, getConOpts } from "../redis/redis";
 
+let subscriber = new Redis(getIORedisOptions(), getConOpts());
+let client = new Redis(getIORedisOptions(), getConOpts());;
 
-const ioRedisInst = new Redis(defaultRedisConnOpts);
-
-const client = new Redis(defaultRedisConnOpts);
-const subscriber = new Redis(defaultRedisConnOpts);
-
-export const queueOptions = {
-  createClient: function(type) {
+export const opts = {
+  createClient: (type) => {
     switch (type) {
       case "client":
         return client;
       case "subscriber":
         return subscriber;
+      case "bclient":
+        return new Redis(getIORedisOptions(), getConOpts());
       default:
-        return ioRedisInst;
+        throw new Error("Unexpected connection type: ", type);
     }
-  }
+  },
 };
+

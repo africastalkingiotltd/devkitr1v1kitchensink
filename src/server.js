@@ -7,7 +7,7 @@ import {
   sessionClean,
   commandQueue
 } from "./lib/other/queues/main";
-import { redisClient, hgetallAsync } from "./lib/other/redis/redis";
+import {hgetallAsync, ioRedisClient } from "./lib/other/redis/redis";
 import { sendServoCommand, sendSMSResponse, voiceOutboundCall, sendLEDCommand } from "./lib/other/output/response";
 const cluster = require("cluster");
 const cpuCount = require("os").cpus().length;
@@ -152,7 +152,7 @@ const pino = require("express-pino-logger")({
       console.info("Found a session. Removing...");
       let redisObjString = JSON.stringify(sessionInfo);
       console.info(`Session Info : ${redisObjString} `);
-      redisClient.del(redisKey.toString());
+      ioRedisClient.del(redisKey.toString());
     }
     console.info(`Session Cleaner worker ${job.id} is done`);
     done();
@@ -162,7 +162,7 @@ const pino = require("express-pino-logger")({
     console.info(`Device Queue worker ${job.id} is running`);
     let key = job.data.dataKey;
     let value = job.data.dataValue;
-    redisClient.set(key, value);
+    ioRedisClient.set(key, value);
     console.info(`Device Queue worker ${job.id} is done`);
     done();
   });

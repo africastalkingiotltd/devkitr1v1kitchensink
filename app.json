@@ -7,7 +7,7 @@
       "eris"
     ],
     "website": "https://africastalking.com/iot",
-    "repository": "https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web",
+    "repository": "https://github.com/africastalkingiotltd/kitchensink_web",
     "logo": "https://africastalking.com/img/favicons/favicon-96x96.png",
     "success_url": "/",
     "scripts": {

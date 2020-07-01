@@ -1,8 +1,8 @@
 const Queue = require("bull");
-import { queueOptions } from "./queueconfig";
+import { opts } from "./queueconfig";
 
-export const devicesQueue = Queue('devices', queueOptions); // Writes  device messages to Redis
-export const callQueue    = Queue("calls", queueOptions); // Queues a call upon request
-export const smsQueue     = Queue("sms", queueOptions); // Sends an SMS
-export const commandQueue = Queue("command", queueOptions); // Commands
-export const sessionClean = Queue("session", queueOptions);
+export const devicesQueue = Queue('devices', opts); // Writes  device messages to Redis
+export const callQueue    = Queue("calls", opts); // Queues a call upon request
+export const smsQueue     = Queue("sms", opts); // Sends an SMS
+export const commandQueue = Queue("command", opts); // Commands
+export const sessionClean = Queue("session", opts);

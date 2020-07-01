@@ -1,25 +1,27 @@
-const redis = require("redis");
+const Redis = require("ioredis");
+const { promisify } = require("util");
 
-const getRedisConnOpts = () => {
-    let connectionString;
+const getRedisConnectionClient = () =>{
+  let redisConnString = "redis://127.0.0.1:6379";
   if (process.env.NODE_ENV == 'production') {
-      connectionString = process.env.REDISCLOUD_URL
-  } 
-  if (process.env.NODE_ENV == 'development') {
-      
-      let redisOptions = {};
-      redisOptions.port = 6379;
-      redisOptions.host = "127.0.0.1";
-      redisOptions.db = 0;
-      connectionString = redisOptions;
+    redisConnString = process.env.REDISCLOUD_URL
   }
-  return connectionString;
+  return redisConnString;
 };
 
-export const redisClient     = redis.createClient(getRedisConnOpts());
-export const defaultRedisConnOpts = getRedisConnOpts();
+const connOpts = {
+  lazyConnect  : false,
+  connectionName: "demo"
+};
 
-const {promisify} = require('util');
-let localRedisClient = redis.createClient(getRedisConnOpts());
+export const getConOpts = () => connOpts;
+
+let redisConnectionString = getRedisConnectionClient();
+
+const localRedisClient = new Redis(redisConnectionString, getConOpts());
+
+export const getIORedisOptions = () => getRedisConnectionClient();
+
+export const ioRedisClient = localRedisClient;
 export const hgetallAsync = promisify(localRedisClient.hgetall).bind(localRedisClient);
 export const getAsync     = promisify(localRedisClient.get).bind(localRedisClient);

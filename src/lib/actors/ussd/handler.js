@@ -1,5 +1,5 @@
 import { ControllerMenu } from "../../ussd/main";
-import { redisClient, getAsync } from "../../other/redis/redis";
+import { getAsync, ioRedisClient } from "../../other/redis/redis";
 import { getUserLevelOneSelection, paramsParser, servoCommand, getUserResponsePreference } from "../../other/input/parser";
 import { dataMessageResponse, upperCaseFirstLetter } from "../../other/output/response";
 import { devicesQueue, smsQueue, callQueue } from "../../other/queues/main";
@@ -18,7 +18,7 @@ export class USSDService {
         response.requestType = reqType;
         response.nextCommand = "displaySecondMenu";
         response.prevCommand = "displayInitialMenu";
-        redisClient.hmset(data.lookupKey, response);
+        ioRedisClient.hmset(data.lookupKey, response);
         return response.menu;
     }
     displaySecondMenu(data)
@@ -42,7 +42,7 @@ export class USSDService {
         response.menu = menu.applicationMessage;
         response.nextCommand = nextCommand;
         response.prevCommand = "displaySecondMenu";
-        redisClient.hmset(data.lookupKey, response);
+        ioRedisClient.hmset(data.lookupKey, response);
         return response.menu;
     }
     displayParameters(data)
@@ -54,7 +54,7 @@ export class USSDService {
         response.prevCommand = "displayParameters";
         response.nextCommand = "getParams";
         response.preference = getUserResponsePreference(data.currentResponse);
-        redisClient.hmset(data.lookupKey, response);
+        ioRedisClient.hmset(data.lookupKey, response);
         return response.menu;
     }
     displayServoOptions(data)
@@ -65,7 +65,7 @@ export class USSDService {
         response.menu = menu.applicationMessage;
         response.prevCommand = "displayServoOptions";
         response.nextCommand = "sendCommand";
-        redisClient.hmset(data.lookupKey, response);
+        ioRedisClient.hmset(data.lookupKey, response);
         return response.menu;
     }
     async getParams(data)
@@ -89,7 +89,7 @@ export class USSDService {
         response.menu = menu;
         response.prevCommand = "getParams";
         response.nextCommand = "NOP";
-        redisClient.hmset(data.lookupKey, response);
+        ioRedisClient.hmset(data.lookupKey, response);
         return response.menu;
     }
     sendCommand(data)
@@ -99,7 +99,7 @@ export class USSDService {
         response.menu = menu;
         response.prevCommand = "sendCommand";
         response.nextCommand = "NOP";
-        redisClient.hmset(data.lookupKey, response);
+        ioRedisClient.hmset(data.lookupKey, response);
         devicesQueue.add({command: servoCommand(data.currentResponse)}, {removeOnComplete: true});
         return response.menu;
     }

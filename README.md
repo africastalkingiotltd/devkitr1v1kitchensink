@@ -1,13 +1,13 @@
 # Africa's Talking IoT : Kitchen sink Demo
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/africastalkingiotltd/kitchensink_web)
 
 ## Usage
 
 ### Quick-Deploy to Heroku 
 
 1. [Create a free Heroku account if you do not have one](https://signup.heroku.com/) 
-2. Click on [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/africastalkingiotltd/devkitr1v1kitchensink_web) button to bootstrap the app 
+2. Click on [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/africastalkingiotltd/kitchensink_web) button to bootstrap the app 
 3. Give your app a name ![Set your app name](./docs/assets/heroku4.png)
 4. Under your Heroku Config Vars section  add the following variables (see the screen grabs below for more info):
     - `APPLICATION_USERNAME` : Your IoT Application username
