@@ -20,11 +20,7 @@
     - `IOT_APIKEY`: Your live application [API KEY](https://help.africastalking.com/en/articles/1361037-how-do-i-generate-an-api-key) 
 ![Configure environment variables](./docs/assets/heroku5.png)
 
-If you need to modify them later see below screen grabs on where to get them
-![Where to get environement variables](./docs/assets/heroku1.png) 
-![Setting up environement variables](./docs/assets/heroku2.png) 
-Your application URL is under the "Domains" section. Should read `https://<appname>.herokuapp.com/`
-![Getting your app URL](./docs/assets/heroku3.png)  
+> **Note** : If you need to modify them later see below screen grabs on where to get them ![Where to get environement variables](./docs/assets/heroku1.png) ![Setting up environement variables](./docs/assets/heroku2.png) Your application URL is under the "Domains" section. Should read `https://<appname>.herokuapp.com/` ![Getting your app URL](./docs/assets/heroku3.png)  
 
 5. Once you're done, click on the "Deploy App" button
 ![Deploy App](./docs/assets/heroku6.png)
@@ -49,7 +45,7 @@ Your application URL is under the "Domains" section. Should read `https://<appna
 1. Navigate to the [AT Sandbox Simulator page](https://simulator.africastalking.com:1517/). Enter a valid phone number.
 2. Click on the USSD option
 ![Main Sandbox app](./docs/assets/sandboxapp1.png)
-3. Dial your USSD code. If your short code above was 1000, dial `*384*1000#` and press the `Call` button for magic!
+3. Dial your USSD code. If your short code above was 1000, enter `*384*1000#` and press the `Call` button for magic!
 ![Dial USSD shortcode](./docs/assets/sandboxapp2.png)
 
 # Contributing 
