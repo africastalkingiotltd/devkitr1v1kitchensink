@@ -1,4 +1,4 @@
-# Africa's Talking IoT : Kitchen sink Demo
+# Africa's Talking IoT : Kitchen sink Demo - web
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/africastalkingiotltd/kitchensink_web)
 
