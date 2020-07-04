@@ -43,8 +43,10 @@
     "express-formidable": "^1.2.0",
     "express-pino-logger": "^4.0.0",
     "ioredis": "^4.14.1",
+    "node-fetch": "^2.6.0",
     "pino-pretty": "^3.5.0",
     "qs": "^6.9.1",
+    "rambda": "^5.8.0",
     "redis": "^2.8.0",
     "xmlbuilder": "^13.0.2"
   }

@@ -170,7 +170,8 @@ const pino = require("express-pino-logger")({
   commandQueue.process("servo", async (job, done) => {
     console.info(`Command Queue worker ${job.id} is running`);
     let res = await sendServoCommand(job.data.command);
-    if(res.status == 201 || res.status == 200 ){
+    if(res.ok){
+      res = await res.json();
       console.info(`Request sent successfuly`);
     }
     else {
@@ -183,7 +184,8 @@ const pino = require("express-pino-logger")({
   commandQueue.process("led", async (job, done) => {
     console.info(`Command Queue worker ${job.id} is running`);
     let res = await sendLEDCommand(job.data.command);
-    if(res.status == 201 || res.status == 200 ){
+    if(res.ok){
+      res = await res.json();
       console.info(`Request sent successfuly`);
     }
     else {

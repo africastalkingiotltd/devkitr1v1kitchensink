@@ -48,6 +48,9 @@ export const paramsParser = input => {
     case "4":
       params = "distance";
       break;
+    case "5":
+      params = "light";
+        break;
     default:
       params = "temperature";
       break;
@@ -66,6 +69,22 @@ export const servoCommand = input => {
       break;
     default:
       command = "open";
+      break;
+  }
+  return command;
+};
+
+export const ledCommand = input => {
+  let command;
+  switch (input) {
+    case "1":
+      command = "on";
+      break;
+    case "2":
+      command = "off";
+      break;
+    default:
+      command = "on";
       break;
   }
   return command;

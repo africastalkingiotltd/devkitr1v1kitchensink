@@ -5,6 +5,9 @@ import { sms, voice, ATAPICreds, IoTConfigs } from "../../../config/africastalki
 import xmlbuilder from "xmlbuilder";
 const axios = require('axios');
 const qs = require('qs');
+const fetch = require("node-fetch");
+
+const url=  "https://iot.africastalking.com/data/publish";
 
 String.prototype.format = function(args) {
   var str = this;
@@ -75,7 +78,6 @@ export const sendServoCommand = async (command) => {
     payload: command
   };
   const IOTCommandConfig = {
-    url: "https://iot.africastalking.com/data/publish",
     method: "post",
     headers: {
       'Content-Type' : 'application/json',
@@ -83,8 +85,7 @@ export const sendServoCommand = async (command) => {
     },
     body: JSON.stringify(commandData)
   };
-  let APIResponse = await axios(IOTCommandConfig);
-  return await APIResponse;
+  return await fetch(url, IOTCommandConfig);
 };
 
 export const sendLEDCommand = async (command) => {
@@ -95,16 +96,14 @@ export const sendLEDCommand = async (command) => {
     payload: command
   };
   const IOTCommandConfig = {
-    url: "https://iot.africastalking.com/data/publish",
-    method: "post",
+    method: "POST",
     headers: {
-      'Content-Type' : 'application/json',
-      'apiKey': `${ATAPICreds.apiKey}`
+      "content-type" : 'application/json',
+      "apikey": `${ATAPICreds.apiKey}`
     },
     body: JSON.stringify(commandData)
   };
-  let APIResponse = await axios(IOTCommandConfig);
-  return await APIResponse;
+   return await fetch(url, IOTCommandConfig);
 };
 
 export const sendSMSResponse = async (phoneNumber, payload) => {
