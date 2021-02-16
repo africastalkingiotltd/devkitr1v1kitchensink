@@ -4,6 +4,30 @@
 
 ## Usage
 
+### Running Locally 
+
+1. Setup [Docker](https://docs.docker.com/get-docker/) and [Docker-Compose](https://docs.docker.com/compose/install/) for your operating system
+2. Navigate to the [./docker](./docker) folder and run the followinng command 
+
+```bash 
+docker-compose up -d
+``` 
+3. Navigate back to the [root directory](./) of this project and run the following command to install dependencies. 
+> Node V14 needed 
+
+```bash 
+yarn install
+
+#or
+
+npm install
+```
+4. Edit the [./.env.example](./.env.example) file with your Africa's Talking credenntials as detailed below in the Heroku setup.
+> Note by default REDIS_URL is redis://127.0.0.1:6379
+5. Rename [./.env.example](./.env.example) to `.env`
+6. Run the app by executing `yarn run dev` or `npm run dev`
+7. You can view what's being  stored in Redis by navigating to [http://localhost:7843](http://localhost:7843) and setting redis host as `redis` .
+
 ### Quick-Deploy to Heroku 
 
 1. [Create a free Heroku account if you do not have one](https://signup.heroku.com/) 

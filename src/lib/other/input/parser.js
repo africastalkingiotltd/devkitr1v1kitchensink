@@ -89,3 +89,11 @@ export const ledCommand = input => {
   }
   return command;
 };
+
+export const removeCtrlChar = (input) => {
+  return input.split('').filter(function (x) {
+    var n = x.charCodeAt(0);
+
+    return 31 < n && 127 > n;
+}).join('');
+};

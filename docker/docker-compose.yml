@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+    redis:
+        image: redis
+        container_name: redis
+        ports:
+            - 6379:6379
+        networks:
+            - internal
+            - web
+    redis_ui:
+        image: patrikx3/p3x-redis-ui:latest
+        ports:
+            - 7843:7843
+        volumes:
+            - ./redis:/settings
+        networks:
+            - internal
+            - web
+# FIXME: Add dockerfile for web
+networks:
+    web:
+    internal:
